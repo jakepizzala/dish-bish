@@ -16,38 +16,63 @@ class ReusableForm(Form):
 
 @app.route('/', methods=['GET', 'POST'])
 def homepage():
-    db = Database()
-    row = db.query("SELECT id, name, name_external FROM tasks")
-    data = {
-        'id': row[0][0],
-        'name': row[0][1],
-        'name_external': row[0][2]
-    }
+    tasks = get_tasks()
+    users = get_users()
     form = ReusableForm(request.form)
     if request.method == 'POST':
-        name = request.form['name']
+        user = request.form['name']
         task = request.form['task']
+        make_entry(user, task)
         # submit entry database
         return redirect(url_for('leaderboard'))
     else:
-        return render_template("homepage.html", form=form, data=data)
+        return render_template("homepage.html", form=form, tasks=tasks, users=users)
 
 
 @app.route('/leaderboard')
 def leaderboard():
-    counts = [
-        {'name': 'Jake', 'points': 10},
-        {'name': 'Elli', 'points': 12},
-        {'name': 'Colleen', 'points': 5},
-        {'name': 'David', 'points': 15}
-    ]
-    new_counts = sorted(counts, key=lambda k: k['points'], reverse=True)
-    return render_template("leaderboard.html", counts=new_counts)
+    counts = get_points_for_users()
+    return render_template("leaderboard.html", counts=counts)
 
 
 @app.route('/addtask')
 def addtask():
     return render_template("addtask.html")
+
+
+def get_points_for_users():
+    db = Database()
+    rows = db.query("SELECT u.name, COUNT(e.id) FROM events e INNER JOIN users u ON e.user_id = u.id WHERE task_id = 1 GROUP BY u.name ORDER BY COUNT(e.id) desc")
+    counts = []
+    for row in rows:
+        counts.append({'name': row[0], 'points': row[1]})
+    return counts
+
+
+def get_tasks():
+    db = Database()
+    rows = db.query("SELECT name_external, id FROM tasks")
+    tasks = []
+    for row in rows:
+        tasks.append({'name': row[0], 'id' : row[1]})
+    return tasks
+
+
+def make_entry(user, task):
+    now = datetime.now()
+    event = {'user_id': user, 'task_id': task, 'start_time': now}
+    db = Database()
+    db.insert("events", event)
+    return True
+
+
+def get_users():
+    db = Database()
+    rows = db.query("SELECT id, name FROM users ORDER BY name")
+    users = []
+    for row in rows:
+        users.append({'id': row[0], 'name': row[1]})
+    return users
 
 
 if __name__ == '__main__':

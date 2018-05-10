@@ -1,7 +1,7 @@
 import os
 import psycopg2
 
-DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE_URL = 'postgres://dtnigeolnnxovw:004ed00b9f6ff241377a8e8f342d00394581ae887f83958d363c532f2de7abdb@ec2-50-19-232-205.compute-1.amazonaws.com:5432/d7grej96i25pth'
 
 class Database:
 	def __init__(self):

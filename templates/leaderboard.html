@@ -8,7 +8,10 @@
 <div class="d-flex flex-row justify-content-center">
     <div class="leaderboard">
         {% for count in counts %}
-        <div class=count>{{ count.name }}, {{count.points }}</div>
+        <div class=count>
+            <div class="attribute">{{count.name}}</div>
+            <div class="attribute">{{count.points}}</div>
+        </div>
         {% endfor %}
     </div>
 </div>

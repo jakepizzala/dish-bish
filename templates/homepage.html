@@ -11,16 +11,15 @@
         {{ form.csrf }}
             <div class="form-group">
               <select class="form-control" id="name" name="name">
-                <option disabled selected value>Wish bish?</option>
-                <option value="jake">Jake</option>
-                <option value="elli">Elli</option>
-                <option value="david">David</option>
-                <option value="colleen">Collen</option>
-                </select>
+                <option disabled selected value>Wish bish you is?</option>
+                 {% for user in users %}
+                    <option value="{{user.id}}">{{user.name}}</option>
+                {% endfor %}
+              </select>
             <div class="task-buttons justify-content-center">
-              <button class="btn btn-primary task-button" value="load" disabled="disabled">Load Dishwasher</button>
-              <button class="btn btn-primary task-button"  value="unload" disabled="disabled">Unload Dishwasher</button>
-              <button class="btn btn-primary task-button" value="awesome" disabled="disabled">Wash dish towels</button>
+                {% for task in tasks %}
+                    <button class="btn btn-primary task-button" value="{{task.id}}" disabled="disabled">{{task.name}}</button>
+                {% endfor %}
 
               <input id="task" name="task" type="hidden" value="task-name-placeholder">
             </div>
