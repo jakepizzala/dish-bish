@@ -1,1 +1,1 @@
-web: gunicorn dish-bish.main
+web: gunicorn app:app --log-file=-
