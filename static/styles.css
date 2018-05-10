@@ -1,0 +1,28 @@
+#task-form {
+    font-size: 24px;
+}
+.task-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+.task-button {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 75%;
+}
+
+.leaderboard {
+    font-size: 40px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #17a2b8;
+    color: white;
+    padding: 20px;
+}
+
+.count {
+    background-color: #00FFFF;
+    padding: 10px;
+    margin: 10px;
+}
