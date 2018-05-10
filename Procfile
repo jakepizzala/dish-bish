@@ -1,1 +1,1 @@
-web: gunicorn dish-bish:dish-bish
+web: gunicorn main:app
