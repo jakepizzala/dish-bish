@@ -3,6 +3,9 @@ function getRank(user_id) {
 }
 
 function getRandomPun(rank) {
+    if (rank === "False") {
+        return;
+    }
 	var puns = [
 		"Seems like we got a new Clean Queen!",
 		"You're a real Rinse Prince over there!",
@@ -24,20 +27,23 @@ function getRandomPun(rank) {
 		"I had a SINKing feeling you'd never get here, but I'm glad you did!",
 		"You're still a lazy forker, but there's still hope for you."
 	];
-	if (rank === 1) {
+	if (rank == 1) {
 		return "You da Top Dish Bish, that's what you is! Make a wish!";
-	} else if (rank === 2) {
+	} else if (rank == 2) {
 		return "CLEANOPATRA! You will not be triumphed over!";
-	} else if (rank === 3) {
+	} else if (rank == 3) {
 		return "You're the greatest, Chorelie Brown!";
 	} else {
-		var index = Math.random() * puns.length;
+		var index = Math.floor(Math.random() * puns.length);
 		return puns[index];
 	}
 }
 
 
 $(document).ready(function(){
+    var rank = $(".rank").html();
+    var pun = getRandomPun(rank);
+    $('.message-text').html(pun);
     $('#name').change(function() {
         $('.task-button').removeAttr('disabled');
     })

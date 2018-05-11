@@ -24,7 +24,7 @@ def homepage():
         task = request.form['task']
         make_entry(user, task)
         # submit entry database
-        return redirect(url_for('leaderboard'))
+        return redirect(url_for('leaderboard', user=user))
     else:
         return render_template("homepage.html", form=form, tasks=tasks, users=users)
 
@@ -35,7 +35,21 @@ def leaderboard():
     top_bish = counts.pop(0)
     cleanopatra = counts.pop(0)
     chorlie = counts.pop(0)
-    return render_template("leaderboard.html", top_bish=top_bish, counts=counts, cleanopatra=cleanopatra, chorlie=chorlie)
+    user = request.args.get('user')
+    if user:
+        username = get_name_for_user_id(user);
+        if top_bish['name'] == username:
+            rank = 1
+        elif cleanopatra['name'] == username:
+            rank = 2
+        elif chorlie['name'] == username:
+            rank = 3
+        else:
+            rank = False
+    else:
+        rank = False
+
+    return render_template("leaderboard.html", top_bish=top_bish, counts=counts, cleanopatra=cleanopatra, chorlie=chorlie, rank=rank)
 
 
 @app.route('/addtask')
@@ -76,6 +90,12 @@ def get_users():
     for row in rows:
         users.append({'id': row[0], 'name': row[1]})
     return users
+
+
+def get_name_for_user_id(user_id):
+    db = Database()
+    row = db.query("SELECT name FROM users WHERE id = " + str(user_id))
+    return row[0][0]
 
 
 if __name__ == '__main__':

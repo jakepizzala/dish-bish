@@ -74,3 +74,13 @@ h1 {
     font-size: 36px;
     font-weight: bold;
 }
+
+.message {
+    font-weight: bold;
+    font-size: 25px;
+    color: whitesmoke;
+}
+
+.message-text {
+    max-width: 500px;
+}
