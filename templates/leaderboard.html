@@ -33,7 +33,7 @@
             <div class="attribute title d-none d-md-block">*chOrLIE broWn!*</div>
         </div>
         {% for count in counts %}
-        <div class="count" {% if count.name == username %}id="current-user"{% endif %}>
+        <div class="count normal" {% if count.name == username %}id="current-user"{% endif %}>
             <div class="attribute points">{{count.points}}&nbsp;&nbsp;</div>
             <div class="attribute">{{count.name}}</div>
         </div>

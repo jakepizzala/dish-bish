@@ -21,10 +21,14 @@
 }
 
 .count {
-    background-color: rgb(0,255,255, .5);
+    background-color: rgba(0,255,255, .5);
     padding: 10px 20px 10px 20px;
     margin: 10px;
     border-radius: 50px;
+}
+
+.count.normal {
+    opacity: .5;
 }
 
 .attribute {
@@ -93,18 +97,18 @@
     animation:blinkingCleano 3s infinite;
 }
 @keyframes blinkingCleano {
-    0%{background-color: rgb(223,224,219, 1);}
-    50%{background-color: rgb(223,224,219, .5);}
-    100%{background-color: rgb(223,224,219, 1);}
+    0%{background-color: rgba(223,224,219, 1);}
+    50%{background-color: rgba(223,224,219, .5);}
+    100%{background-color: rgba(223,224,219, 1);}
 }
 
 #current-chorlie {
     animation:blinkingChorlie 3s infinite;
 }
 @keyframes blinkingChorlie {
-    0%{background-color: rgb(237,202,132, 1);}
-    50%{background-color: rgb(237,202,132, .5);}
-    100%{background-color: rgb(237,202,132, 1);}
+    0%{background-color: rgba(237,202,132, 1);}
+    50%{background-color: rgba(237,202,132, .5);}
+    100%{background-color: rgba(237,202,132, 1);}
 }
 
 .title.d-md-none {
