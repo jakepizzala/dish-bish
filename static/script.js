@@ -24,7 +24,8 @@ function getRandomPun(rank) {
 		"Way to wipe up that ugly mug!",
 		"WHAT THE FORK! Oh, just you again. Don't sneak up on me like that.",
 		"I had a SINKing feeling you'd never get here, but I'm glad you did!",
-		"You're still a lazy forker... but there's hope for you yet!"
+		"You're still a lazy forker... but there's hope for you yet!",
+        "Seems like we've TRAINed you well! CHOO CHOO!"
 	];
 	if (rank == 1) {
 		return "You da Top Dish Bish, that's what you is! Make a wish!";
