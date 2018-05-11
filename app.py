@@ -32,7 +32,10 @@ def homepage():
 @app.route('/leaderboard')
 def leaderboard():
     counts = get_points_for_users()
-    return render_template("leaderboard.html", counts=counts)
+    top_bish = counts.pop(0)
+    cleanopatra = counts.pop(0)
+    chorlie = counts.pop(0)
+    return render_template("leaderboard.html", top_bish=top_bish, counts=counts, cleanopatra=cleanopatra, chorlie=chorlie)
 
 
 @app.route('/addtask')
@@ -42,7 +45,7 @@ def addtask():
 
 def get_points_for_users():
     db = Database()
-    rows = db.query("SELECT u.name, COUNT(e.id) FROM events e INNER JOIN users u ON e.user_id = u.id WHERE task_id = 1 GROUP BY u.name ORDER BY COUNT(e.id) desc")
+    rows = db.query("SELECT u.name, COUNT(e.id) FROM events e INNER JOIN users u ON e.user_id = u.id GROUP BY u.name ORDER BY COUNT(e.id) desc")
     counts = []
     for row in rows:
         counts.append({'name': row[0], 'points': row[1]})
@@ -54,7 +57,7 @@ def get_tasks():
     rows = db.query("SELECT name_external, id FROM tasks")
     tasks = []
     for row in rows:
-        tasks.append({'name': row[0], 'id' : row[1]})
+        tasks.append({'name': row[0], 'id': row[1]})
     return tasks
 
 
