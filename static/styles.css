@@ -130,7 +130,7 @@ h1 {
 }
 
 h1.d-md-none {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 h1.d-md-block {
@@ -144,17 +144,12 @@ h1.d-md-block {
 }
 
 .copyright {
-    position: fixed;
     width: 100%;
     text-align: center;
     color: white;
     font-size: 20px;
     bottom: 0;
-}
-
-.copyright.bottom {
-    position: initial;
-    margin-top:50px;
+    margin-top:80px;
 }
 
 .back-button {
