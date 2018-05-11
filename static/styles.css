@@ -88,27 +88,27 @@
     font-weight: bold;
 }
 @keyframes blinkingUser {
-    0%{background-color: rgb(0,255,255, 1);}
-    50%{background-color: rgb(0,255,255, .5);}
-    100%{background-color: rgb(0,255,255, 1);}
+    0%{background-color: rgba(0,255,255, 1); opacity: 1;}
+    50%{background-color: rgba(0,255,255, .5); opacity: .5;}
+    100%{background-color: rgba(0,255,255, 1); opacity: 1;}
 }
 
 #current-cleanopatra {
     animation:blinkingCleano 3s infinite;
 }
 @keyframes blinkingCleano {
-    0%{background-color: rgba(223,224,219, 1);}
-    50%{background-color: rgba(223,224,219, .5);}
-    100%{background-color: rgba(223,224,219, 1);}
+    0%{background-color: rgba(223,224,219, 1);  opacity: 1;}
+    50%{background-color: rgba(223,224,219, .5); opacity: .5;}
+    100%{background-color: rgba(223,224,219, 1); opacity: 1;}
 }
 
 #current-chorlie {
     animation:blinkingChorlie 3s infinite;
 }
 @keyframes blinkingChorlie {
-    0%{background-color: rgba(237,202,132, 1);}
-    50%{background-color: rgba(237,202,132, .5);}
-    100%{background-color: rgba(237,202,132, 1);}
+    0%{background-color: rgba(237,202,132, 1); opacity: 1;}
+    50%{background-color: rgba(237,202,132, .5); opacity: .5;}
+    100%{background-color: rgba(237,202,132, 1); opacity: 1;}
 }
 
 .title.d-md-none {
