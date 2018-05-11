@@ -45,7 +45,7 @@ def leaderboard():
         elif chorlie['name'] == username:
             rank = 3
         else:
-            rank = False
+            rank = 10
     else:
         rank = False
 
