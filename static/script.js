@@ -7,11 +7,10 @@ function getRandomPun(rank) {
         return;
     }
 	var puns = [
-		"Seems like we got a new Clean Queen!",
-		"You're a real Rinse Prince over there!",
+		"You're a real Rinse Prince!",
 		"WATCH OUT! There's a Sponge Samari on the loose!",
-		"You trying to be some kind of SOAPer bowl champ over there or something?",
-		"All that hard trabajo has made you a proper Chore Señor!",
+		"You're the SOAPer bowl champ!",
+		"Gracias por tu duro trabajo, Señor Chore!",
 		"Knife going over there!",
 		"May the fork be with you.",
 		"NICE! Your enthusiasm has proven you're not just some casual glass kisser.",
@@ -25,12 +24,12 @@ function getRandomPun(rank) {
 		"Way to wipe up that ugly mug!",
 		"WHAT THE FORK! Oh, just you again. Don't sneak up on me like that.",
 		"I had a SINKing feeling you'd never get here, but I'm glad you did!",
-		"You're still a lazy forker, but there's still hope for you."
+		"You're still a lazy forker... but there's hope for you yet!"
 	];
 	if (rank == 1) {
 		return "You da Top Dish Bish, that's what you is! Make a wish!";
 	} else if (rank == 2) {
-		return "CLEANOPATRA! You will not be triumphed over!";
+		return "CLEANOPATRA! You're the Clean Queen!";
 	} else if (rank == 3) {
 		return "You're the greatest, Chorelie Brown!";
 	} else {
@@ -54,4 +53,13 @@ $(document).ready(function(){
         $('#task').val(task);
         $("#task-form").submit();
     })
+
+    $('.back-button').click(function(e) {
+        window.location.href = '/';
+    })
+
+    $('.leaderboard-button').click(function(e) {
+        window.location.href = '/leaderboard';
+    })
+
 });

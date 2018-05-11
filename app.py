@@ -48,8 +48,9 @@ def leaderboard():
             rank = 10
     else:
         rank = False
+        username =''
 
-    return render_template("leaderboard.html", top_bish=top_bish, counts=counts, cleanopatra=cleanopatra, chorlie=chorlie, rank=rank)
+    return render_template("leaderboard.html", top_bish=top_bish, counts=counts, cleanopatra=cleanopatra, chorlie=chorlie, rank=rank, username=username)
 
 
 @app.route('/addtask')

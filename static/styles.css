@@ -1,9 +1,5 @@
-h1 {
-    font-size: 50px;
-}
-
 #task-form {
-    font-size: 24px;
+    margin-top: 50px;
 }
 .task-buttons {
     margin-top: 20px;
@@ -13,15 +9,15 @@ h1 {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 75%;
+    width: 85%;
+    font-size: 27px;
 }
 
 .leaderboard {
     font-size: 28px;
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     color: white;
-    padding: 20px;
 }
 
 .count {
@@ -36,7 +32,7 @@ h1 {
 }
 
 .topbish {
-    animation:blinkingBish 0.8s infinite;
+    animation:blinkingBish 1.5s infinite;
     font-weight: bold;
 }
 @keyframes blinkingBish {
@@ -50,15 +46,16 @@ h1 {
 }
 
 .chorlie {
-    color: #b2895e;
+    color: #A57164;
     background-color: #edca84;
     font-weight: bold;
 }
 
 .leaderboard-wrapper {
-    background-size: 100%;
+    background-size: cover;
     background-image: url("/static/bubbles.jpg");
     background-attachment: fixed;
+    background-position: center;
 }
 
 .homepage-wrapper {
@@ -75,12 +72,111 @@ h1 {
     font-weight: bold;
 }
 
-.message {
+.message-text {
+    max-width: 700px;
+    font-size: 30px;
     font-weight: bold;
-    font-size: 25px;
     color: whitesmoke;
 }
 
-.message-text {
-    max-width: 500px;
+#current-user {
+    animation:blinkingUser 3s infinite;
+    font-weight: bold;
 }
+@keyframes blinkingUser {
+    0%{background-color: rgb(0,255,255, 1);}
+    50%{background-color: rgb(0,255,255, .5);}
+    100%{background-color: rgb(0,255,255, 1);}
+}
+
+#current-cleanopatra {
+    animation:blinkingCleano 3s infinite;
+}
+@keyframes blinkingCleano {
+    0%{background-color: rgb(223,224,219, 1);}
+    50%{background-color: rgb(223,224,219, .5);}
+    100%{background-color: rgb(223,224,219, 1);}
+}
+
+#current-chorlie {
+    animation:blinkingChorlie 3s infinite;
+}
+@keyframes blinkingChorlie {
+    0%{background-color: rgb(237,202,132, 1);}
+    50%{background-color: rgb(237,202,132, .5);}
+    100%{background-color: rgb(237,202,132, 1);}
+}
+
+.title.d-md-none {
+    font-size: 14px;
+}
+
+.title.d-md-block {
+    float: right;
+    font-size: 22px;
+}
+
+.points {
+    min-width: 50px;
+}
+
+.header-wrapper {
+    background-color: rgb(211,211,211, .4);
+    margin-bottom: 30px;
+}
+h1 {
+    font-weight: bold;
+    color: white;
+}
+
+h1.d-md-none {
+    font-size: 50px;
+}
+
+h1.d-md-block {
+    font-size: 75px;
+}
+
+
+.homepage-header-back {
+    background-color: rgb(211,211,211, .4);
+    margin-bottom: 30px;
+}
+
+.copyright {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    bottom: 0;
+}
+
+.copyright.bottom {
+    position: initial;
+    margin-top:50px;
+}
+
+.back-button {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: white;
+}
+
+.leaderboard-button {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background-color: white;
+}
+
+.form-control#name {
+    font-size: 20px;
+    height: 50px;
+}
+
+.form-group {
+    text-align: center;
+}
+

@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="leaderboard-wrapper">
-<div class="d-flex flex-row justify-content-center">
+<div class="d-flex flex-row justify-content-center header-wrapper">
   <div class="p-3">
-    <h1>Leaderboard</h1>
+    <h1 class="d-md-none">Leaderboard</h1>
+    <h1 class="d-none d-md-block">Leaderboard</h1>
+    <div class="d-md-none back-button btn btn-outline-info"><<</div>
+    <div class="d-none d-md-block back-button btn btn-outline-info"><<&nbsp;&nbsp;New entry</div>
   </div>
 </div>
 <div class="d-flex flex-row justify-content-center message">
@@ -14,20 +17,23 @@
         <div class="count topbish">
             <div class="attribute points">{{top_bish.points}}&nbsp;&nbsp;</div>
             <div class="attribute">{{top_bish.name}}</div>
-            <div class="attribute">*tOp diSh biSH!*</div>
+            <div class="attribute title d-md-none">*tOp diSh biSH!*</div>
+            <div class="attribute title d-none d-md-block">*tOp diSh biSH!*</div>
         </div>
-        <div class="count cleanopatra">
+        <div class="count cleanopatra" {% if cleanopatra.name == username %}id="current-cleanopatra"{% endif %}>
             <div class="attribute points">{{cleanopatra.points}}&nbsp;&nbsp;</div>
             <div class="attribute">{{cleanopatra.name}}</div>
-            <div class="attribute">*cLeAnOPatrA!*</div>
+            <div class="attribute title d-md-none">*cLeAnOPatrA!*</div>
+            <div class="attribute title d-none d-md-block">*cLeAnOPatrA!*</div>
         </div>
-        <div class="count chorlie">
+        <div class="count chorlie" {% if chorlie.name == username %}id="current-chorlie"{% endif %}>
             <div class="attribute points">{{chorlie.points}}&nbsp;&nbsp;</div>
             <div class="attribute">{{chorlie.name}}</div>
-            <div class="attribute">*chOrLIE broWn!*</div>
+            <div class="attribute title d-md-none">*chOrLIE broWn!*</div>
+            <div class="attribute title d-none d-md-block">*chOrLIE broWn!*</div>
         </div>
         {% for count in counts %}
-        <div class="count">
+        <div class="count" {% if count.name == username %}id="current-user"{% endif %}>
             <div class="attribute points">{{count.points}}&nbsp;&nbsp;</div>
             <div class="attribute">{{count.name}}</div>
         </div>
@@ -35,5 +41,6 @@
     </div>
 </div>
 <div class="rank">{{rank}}</div>
+<div class="copyright bottom">© 2018 Team Extreme. All rights reserved.</div>
 </div>
 {% endblock %}

@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="homepage-wrapper">
-<div class="d-flex flex-row justify-content-center">
+<div class="d-flex flex-row justify-content-center homepage-header-back">
   <div class="p-3">
-    <h1>Dish Bish</h1>
+    <h1 class="d-md-none">Dish Bish</h1>
+    <h1 class="d-none d-md-block">Dish Bish</h1>
+    <div class="d-md-none leaderboard-button btn btn-outline-info">>></div>
+    <div class="d-none d-md-block leaderboard-button btn btn-outline-info">Leaderboard&nbsp;&nbsp;>></div>
   </div>
 </div>
 <div class="d-flex flex-row justify-content-center">
@@ -11,7 +14,7 @@
         <form  id="task-form" action="" method="post" role="form">
         {{ form.csrf }}
             <div class="form-group">
-              <select class="form-control" id="name" name="name">
+              <select class="form-control custom-select" id="name" name="name">
                 <option disabled selected value>Wish bish you is?</option>
                  {% for user in users %}
                     <option value="{{user.id}}">{{user.name}}</option>
@@ -19,7 +22,7 @@
               </select>
             <div class="task-buttons justify-content-center">
                 {% for task in tasks %}
-                    <button class="btn btn-primary task-button" value="{{task.id}}" disabled="disabled">{{task.name}}</button>
+                    <button class="btn btn-primary task-button btn-lg" value="{{task.id}}" disabled="disabled">{{task.name}}</button>
                 {% endfor %}
 
               <input id="task" name="task" type="hidden" value="task-name-placeholder">
@@ -28,6 +31,7 @@
         </form>
     </div>
 </div>
+<div class="copyright">© 2018 Team Extreme. All rights reserved.</div>
 </div>
 
 {% endblock %}
